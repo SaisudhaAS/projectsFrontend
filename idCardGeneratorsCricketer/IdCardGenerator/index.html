@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cricketer ID Card Generator for Rohit sharma</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('cric.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #001C30;
+            background-image: url('cric.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 5px;
+            height: 550px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        form input[type="text"],
+        form input[type="file"] {
+            width: 90%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+            border: 1px solid #ccc;
+            color: black;
+            font-weight: bold;
+        }
+
+        form button[type="submit"] {
+            padding: 10px 20px;
+            background-color: green;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        #id-card-container {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .id-card {
+            background-image: url('idback.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 300px;
+            background-color: ghostwhite;
+            padding: 20px;
+            border-radius: 25px;
+            height: 500px;
+            border-color: #0e0e0f;
+        }
+
+        .id-card img#photo-preview {
+            width: 130px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            height: 130px;
+        }
+
+        .id-card h2,
+        .id-card p {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.5;
+            font-weight: bold;
+        }
+
+        .id-card p:not(:last-child) {
+            margin-bottom: 5px;
+        }
+
+        #qr-code {
+            width: 50px;
+            height: 50px;
+            margin: 10px auto;
+            display: block;
+        }
+
+        #download-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            visibility: hidden;
+        }
+
+        .navbar {
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .navbar img {
+            margin-right: 10px;
+        }
+
+        .navbar h4 {
+            margin: 0;
+        }
+
+        #para {
+            font-size: 12px;
+            color: black;
+            margin-bottom: 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <marquee behavior="scroll" direction="left">
+        <strong style="color: red;"> * Important Notice:</strong>
+        Please enter the details in the form, click on "Generate ID Card," and ensure that each field contains a maximum of 20 characters.
+    </marquee>  
+    
+    <h1 style="color: black; text-align: center;">CRICKETER ID CARD FORM</h1>
+  <form id="cricketer-form">
+    
+    <label for="name"><i class="fa fa-user"></i> Name:</label>
+    <input type="text" id="name" maxlength="20" required><br>
+    
+    <label for="player-id"><i class="fa fa-id-card"></i> Player ID:</label>
+    <input type="text" id="player-id"  maxlength="20" required><br>
+    
+    <label for="team"><i class="fa fa-users"></i> Team:</label>
+    <input type="text" id="team" maxlength="20" required><br>
+    
+    <label for="club"><i class="fa fa-university"></i> Club:</label>
+    <input type="text" id="club" maxlength="20" required><br>
+    
+    <label for="address"><i class="fa fa-map-marker"></i> Address:</label>
+    <input type="text" id="address"  maxlength="20" required><br>
+    
+    <label for="date"><i class="fa fa-calendar"></i> Date:</label>
+    <input style="border-radius: 25px; width: 90%;
+    padding: 8px;
+    margin-bottom: 10px; border-color: #0e0e0f;"  type="date" id="date" required><br>
+    <br>
+    <label for="photo"><i class="fa fa-camera"></i> Photo:</label>
+    <input style="background-color: #fff; color: #0e0e0f;" type="file" id="photo" accept="image/*" required><br>
+    <br>
+    <button type="submit"></i> Generate ID Card</button>
+</form>
+
+    <div id="id-card-container" >
+        <div class="id-card">
+            <div class="navbar">
+                <img src="IPL-10-Logo-PNG.png" alt="" width="50px" height="50px">
+                <center><h2>Cricketer Official Pass</h2></center>
+                <img src="Mumbai-Indians-Logo-PNG.png" alt="" width="60px" height="50px">
+            </div>
+            <hr>
+            <center>
+                <img id="photo-preview" src="" alt="Cricketer Photo">
+                <h2 id="name-preview"></h2>
+            </center>
+            <p id="player-id-preview"></p>
+            <p id="team-preview"></p>
+            <p id="club-preview"></p>
+            <p id="address-preview"></p>
+            <p id="date-preview"></p>
+            <div>
+            <img id="qr-code" src="" alt="QR Code">
+       <p id="para">   Swami Sivananda Memorial Institute & School, 31, East Avenue, Punjabi Bagh, Delhi – 110026</p>
+            <a id="download-link" href="#"  download="cricketer-id-card.png">Download</a>
+          
+
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("cricketer-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Fetching form values
+            var name = document.getElementById("name").value;
+            var playerId = document.getElementById("player-id").value;
+            var team = document.getElementById("team").value;
+            var club = document.getElementById("club").value;
+            var address = document.getElementById("address").value;
+            var startDate = new Date(document.getElementById("date").value);
+            var endDate = new Date(startDate.getTime());
+            endDate.setMonth(endDate.getMonth() + 6);
+
+            var endDateFormatOptions = { day: "2-digit", month: "short", year: "numeric" };
+            var formattedEndDate = endDate.toLocaleDateString("en-US", endDateFormatOptions);
+
+            var photo = document.getElementById("photo").files[0];
+
+            // Displaying form values on ID card
+            document.getElementById("photo-preview").src = URL.createObjectURL(photo);
+            document.getElementById("name-preview").innerText = name;
+            document.getElementById("player-id-preview").innerText = "Player ID: " + playerId;
+            document.getElementById("team-preview").innerText = "Team: " + team;
+            document.getElementById("club-preview").innerText = "Club: " + club;
+            document.getElementById("address-preview").innerText = "Address: " + address;
+            document.getElementById("date-preview").innerText = "Valid Until: " + formattedEndDate;
+
+            // Generate and display QR code
+            var qrCodeData = "Organization: Cricket Association\n" +
+                "Name: " + name + "\n" +
+                "Player ID: " + playerId + "\n" +
+                "Team: " + team + "\n" +
+                "Club: " + club + "\n" +
+                "Address: " + address + "\n" +
+                "Valid Until: " + formattedEndDate;
+
+            var qrCodeUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(qrCodeData);
+            document.getElementById("qr-code").src = qrCodeUrl;
+
+            // Show/hide the form and ID card container
+            var form = document.getElementById("cricketer-form");
+            var idCardContainer = document.getElementById("id-card-container");
+
+            if (form.style.display === "none") {
+                form.style.display = "block";
+                idCardContainer.style.display = "none";
+            } else {
+                form.style.display = "none";
+                idCardContainer.style.display = "flex";
+            }
+
+            // Generate download link
+            domtoimage.toBlob(document.getElementById("id-card-container"))
+                .then(function (blob) {
+                    var link = document.getElementById("download-link");
+                    link.href = URL.createObjectURL(blob);
+                    link.style.visibility = "visible";
+                });
+        });
+    </script>
+</body>
+</html>
